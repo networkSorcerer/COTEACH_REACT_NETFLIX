@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import AppLayout from "./layout/AppLayout";
 import HomePage from "./pages/Homepage/HomePage";
 import MoviePage from "./pages/Movies/MoviePage";
 import MovieDetail from "./pages/MovieDetail/MovieDetail";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 function App() {
   return (
     <>
@@ -17,6 +17,7 @@ function App() {
               <Route path=":id" element={<MovieDetail />} />
             </Route>
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </>
