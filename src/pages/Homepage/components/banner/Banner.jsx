@@ -2,7 +2,7 @@ import React from "react";
 import { usePopularMoviesQuery } from "../../../../hooks/usePopularMovies";
 
 const Banner = () => {
-  const { data } = usePopularMoviesQuery();
+  const { data, isLoading, error, isError } = usePopularMoviesQuery();
   return <div></div>;
 };
 
