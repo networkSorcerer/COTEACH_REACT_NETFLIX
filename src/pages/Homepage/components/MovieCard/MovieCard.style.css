@@ -1,0 +1,62 @@
+.movie_card {
+  position: relative;
+  width: 220px;
+  height: 330px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.movie_card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  z-index: 3;
+}
+
+/* 오버레이: 어두운 반투명 배경 */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  transition: opacity 0.6s ease;
+}
+
+.movie_card:hover .overlay {
+  opacity: 1;
+}
+
+/* 제목 */
+.overlay h1 {
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.2;
+  word-break: keep-all;
+}
+
+/* 장르 뱃지 영역 */
+.overlay .genres {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+/* 하단 정보 */
+.overlay .info {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}

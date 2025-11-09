@@ -5,6 +5,7 @@ import MoviePage from "./pages/Movies/MoviePage";
 import MovieDetail from "./pages/MovieDetail/MovieDetail";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import "./App.css";
 function App() {
   return (
     <>
