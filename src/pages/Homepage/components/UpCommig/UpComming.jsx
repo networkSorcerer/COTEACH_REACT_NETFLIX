@@ -1,10 +1,10 @@
 import React from "react";
-import { usePopularMoviesQuery } from "../../../../hooks/usePopularMovies";
 import { Alert } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieCard from "../MovieCard/MovieCard";
-import "./PopularMovieSlide.style.css";
+import "../popularmoive/PopularMovieSlide.style.css";
+import { useUpcommingMoviesQuery } from "../../../../hooks/useUpcomming";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -19,9 +19,9 @@ const responsive = {
     items: 1,
   },
 };
-const PopularMovieSlide = () => {
-  const { data, isLoading, isError, error } = usePopularMoviesQuery();
-  console.log("pppppp", data);
+const UpComming = () => {
+  const { data, isLoading, isError, error } = useUpcommingMoviesQuery();
+  console.log("uuuu", data);
   if (isLoading) {
     return <h1>Loading.....</h1>;
   }
@@ -30,7 +30,7 @@ const PopularMovieSlide = () => {
   }
   return (
     <div>
-      <h3 className="banner-title">인기 영화</h3>
+      <h3 className="banner-title">상영 예정작</h3>
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -46,4 +46,4 @@ const PopularMovieSlide = () => {
   );
 };
 
-export default PopularMovieSlide;
+export default UpComming;
