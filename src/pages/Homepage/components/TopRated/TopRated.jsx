@@ -2,9 +2,9 @@ import React from "react";
 import { Alert } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import MovieCard from "../MovieCard/MovieCard";
-import "../popularmoive/PopularMovieSlide.style.css";
+import MovieCard from "../../../../common/MovieCard/MovieCard";
 import { useTopRatedMoviesQuery } from "../../../../hooks/useTopRated";
+import MovieSlider from "../../../../common/MovieSlider/MovieSlider";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -30,18 +30,11 @@ const TopReated = () => {
   }
   return (
     <div>
-      <h3 className="banner-title">현재 상영작</h3>
-      <Carousel
+      <MovieSlider
+        title="On Screen"
+        movies={data?.results}
         responsive={responsive}
-        infinite={true}
-        containerClass="carousel-container"
-        itemClass="carousel-item-padding-40-px"
-        centerMode={true}
-      >
-        {data.results.map((movie, index) => (
-          <MovieCard movie={movie} key={index} />
-        ))}
-      </Carousel>
+      />
     </div>
   );
 };
