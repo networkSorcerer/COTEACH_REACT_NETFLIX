@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const AppLayout = () => {
+  const [keyword, setKeyword] = useState("");
+  const navigate = useNavigate();
+  const searchByKeyword = (event) => {
+    event.preventDefault();
+    navigate(`/movies?q=${keyword}`);
+  };
   return (
     <div style={{ backgroundColor: "#141414", minHeight: "100vh" }}>
       <Navbar
@@ -63,12 +69,17 @@ const AppLayout = () => {
             </Nav>
 
             {/* 오른쪽 검색창 */}
-            <Form className="d-flex align-items-center">
+            <Form
+              className="d-flex align-items-center"
+              onSubmit={searchByKeyword}
+            >
               <Form.Control
                 type="search"
                 placeholder="검색"
                 className="me-2 bg-dark text-light border-0"
                 aria-label="Search"
+                value={keyword}
+                onChange={(event) => setKeyword(event.target.value)}
                 style={{
                   width: "180px",
                   borderRadius: "4px",
@@ -76,6 +87,7 @@ const AppLayout = () => {
                 }}
               />
               <Button
+                type="submit"
                 variant="danger"
                 style={{
                   backgroundColor: "#e50914",
