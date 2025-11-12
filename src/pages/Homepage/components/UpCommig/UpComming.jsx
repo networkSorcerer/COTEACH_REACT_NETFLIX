@@ -32,7 +32,7 @@ const UpComming = () => {
     <div>
       <MovieSlider
         title="Upcomming"
-        movies={data?.results}
+        movies={data.results}
         responsive={responsive}
       />
     </div>

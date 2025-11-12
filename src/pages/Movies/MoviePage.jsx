@@ -15,6 +15,8 @@ const MoviePage = () => {
   React.useEffect(() => {
     if (!keyword) {
       navigate("/"); // 홈 또는 원래 리스트 페이지 경로
+    } else {
+      setPage(1);
     }
   }, [keyword, navigate]);
   console.log();
@@ -24,6 +26,7 @@ const MoviePage = () => {
   });
   console.log("sssss", data);
   const handlePageClick = ({ selected }) => {
+    console.log("ssss", selected);
     setPage(selected + 1);
   };
   if (isLoading) {

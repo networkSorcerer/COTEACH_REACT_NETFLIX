@@ -32,7 +32,7 @@ const TopReated = () => {
     <div>
       <MovieSlider
         title="On Screen"
-        movies={data?.results}
+        movies={data.results}
         responsive={responsive}
       />
     </div>
