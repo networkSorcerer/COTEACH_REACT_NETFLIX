@@ -23,3 +23,13 @@
 .banner-text-area > * {
   z-index: 2;
 }
+/* Banner.style.css */
+.banner-text-area p {
+  display: block; /* 기본적으로 표시 */
+}
+
+@media (max-width: 768px) {
+  .banner-text-area p {
+    display: none; /* 모바일(태블릿 이하)에서는 숨김 */
+  }
+}

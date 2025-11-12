@@ -60,7 +60,7 @@ const MoviePage = () => {
           <Row>
             {data?.results.map((movie, index) => (
               <Col key={index} lg={4} xs={12}>
-                <MovieCard movie={movie} />
+                <MovieCard movie={movie}  />
               </Col>
             ))}
           </Row>
