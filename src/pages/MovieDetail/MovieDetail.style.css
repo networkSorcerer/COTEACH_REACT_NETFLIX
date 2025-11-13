@@ -31,3 +31,10 @@
   line-height: 1.6;
   max-width: 700px;
 }
+
+.review-area {
+  padding: 60px 20px 0 20px;
+}
+.recommend-area {
+  padding: 60px 20px 0 20px;
+}

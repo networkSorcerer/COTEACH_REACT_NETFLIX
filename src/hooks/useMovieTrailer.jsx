@@ -1,17 +1,17 @@
-import { Suspense } from "react";
 import api from "../utils/api";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchMovieTrailer = (queryData) => {
   const id = queryData.queryKey[1];
-  return api.get(`/movie/${id}/video?language=en-US`);
+  return api.get(`/movie/${id}/videos?language=en-US`);
 };
 
 export const useMovieTrailerQuery = (id) => {
   return useQuery({
     queryKey: ["movie-trailer", id],
     queryFn: fetchMovieTrailer,
-    Suspense: true,
+    suspense: true,
     refechOnMount: false,
+    select: (result) => result.data,
   });
 };

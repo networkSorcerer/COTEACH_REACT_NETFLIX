@@ -3,13 +3,16 @@ import { useParams } from "react-router-dom";
 import { useMoviesDetailQuery } from "../../hooks/useMovieDetail";
 import { Badge, Container, Row, Col, Button } from "react-bootstrap";
 import "./MovieDetail.style.css"; // 아래에 추가할 CSS 별도 관리
+import Reviews from "./components/reviews/reviews";
+import Recommend from "./components/recommend/recommend";
+import { TrailerModal } from "./components/Modal/Modal";
 
 const IMG_BASE_URL = "https://www.themoviedb.org/t/p/w500";
 
 const MovieDetail = () => {
   const { id } = useParams();
   const { data, isLoading, isError, error } = useMoviesDetailQuery(id);
-
+  const [modalShow, setModalShow] = React.useState(false);
   if (isLoading)
     return <div className="text-center text-light mt-5">Loading...</div>;
   if (isError)
@@ -72,7 +75,11 @@ const MovieDetail = () => {
 
               {/* 버튼 */}
               <div className="d-flex gap-3">
-                <Button variant="danger" size="lg">
+                <Button
+                  variant="danger"
+                  size="lg"
+                  onClick={() => setModalShow(true)}
+                >
                   ▶ 재생
                 </Button>
                 <Button variant="outline-light" size="lg">
@@ -81,8 +88,19 @@ const MovieDetail = () => {
               </div>
             </Col>
           </Row>
+          <Row className="review-area">
+            <Reviews />
+          </Row>
+          <Row className="recommend-area">
+            <Recommend />
+          </Row>
         </Container>
       </div>
+      <TrailerModal
+        title={data.title}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 };
