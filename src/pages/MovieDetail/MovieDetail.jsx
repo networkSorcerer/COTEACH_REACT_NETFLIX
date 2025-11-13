@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import { useMoviesDetailQuery } from "../../hooks/useMovieDetail";
 import { Badge, Container, Row, Col, Button } from "react-bootstrap";
 import "./MovieDetail.style.css"; // 아래에 추가할 CSS 별도 관리
-import Reviews from "./components/reviews/reviews";
-import Recommend from "./components/recommend/recommend";
+import Reviews from "./components/reviews/Reviews";
+import Recommend from "./components/recommend/Recommend";
 import { TrailerModal } from "./components/Modal/Modal";
 
 const IMG_BASE_URL = "https://www.themoviedb.org/t/p/w500";
