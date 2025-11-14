@@ -1,6 +1,6 @@
 import React from "react";
 import { Spinner } from "react-bootstrap";
-
+import "./LoadingSpinner.style.css";
 const LoadingSpinner = () => {
   return (
     <div className="spinner-area">

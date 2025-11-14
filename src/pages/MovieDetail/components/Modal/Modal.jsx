@@ -3,10 +3,8 @@ import { useParams } from "react-router-dom";
 import { useMovieTrailerQuery } from "../../../../hooks/useMovieTrailer";
 import YouTube from "react-youtube";
 import { useEffect, useState } from "react";
-
+import "./Modal.style.css";
 const opts = {
-  height: "390",
-  width: "640",
   playerVars: {
     autoplay: 1,
   },
@@ -51,7 +49,9 @@ export function TrailerModal(props) {
       </BootstrapModal.Header>
       <BootstrapModal.Body className="d-flex justify-content-center">
         {videoId ? (
-          <YouTube videoId={videoId} opts={opts} onReady={onPlayerReady} />
+          <div className="video-responsive">
+            <YouTube videoId={videoId} opts={opts} onReady={onPlayerReady} />
+          </div>
         ) : (
           <div className="text-secondary">No trailer available</div>
         )}

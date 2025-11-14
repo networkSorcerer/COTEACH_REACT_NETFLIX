@@ -18,7 +18,7 @@ const MoviePage = () => {
 
   React.useEffect(() => {
     if (!keyword) {
-      navigate("/"); // 홈 또는 리스트 페이지
+      navigate("/movies"); // 홈 또는 리스트 페이지
     } else {
       setPage(1);
     }
