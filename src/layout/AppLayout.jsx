@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const AppLayout = () => {
   const [keyword, setKeyword] = useState("");
+  const location = useLocation();
   const navigate = useNavigate();
   const searchByKeyword = (event) => {
     event.preventDefault();
     navigate(`/movies?q=${keyword}`);
   };
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setKeyword("");
+    }
+  }, [location.pathname]);
   return (
     <div style={{ backgroundColor: "#141414", minHeight: "100vh" }}>
       <Navbar
@@ -36,6 +42,7 @@ const AppLayout = () => {
               letterSpacing: "1px",
               fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
             }}
+            onClick={() => navigate("/")}
           >
             NETFLIX
           </Navbar.Brand>

@@ -77,6 +77,9 @@ const MoviePage = () => {
     return (
       <Container className="text-center mt-5">
         <h4>검색 결과가 없습니다.</h4>
+        <Button variant="danger" onClick={() => navigate("/")}>
+          돌아가기
+        </Button>
       </Container>
     );
 

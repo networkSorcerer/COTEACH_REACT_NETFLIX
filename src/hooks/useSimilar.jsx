@@ -5,7 +5,7 @@ const fetchSimilarMovie = (id) => {
 };
 export const useRecommendQuery = (id) => {
   return useQuery({
-    queryKey: ["movie-similar"],
+    queryKey: ["movie-similar", id],
     queryFn: () => fetchSimilarMovie(id),
     suspense: true,
     select: (result) => result.data,
